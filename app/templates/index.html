@@ -1,0 +1,37 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+	<br>
+	
+	<center>
+	<form action="/submit" id="textform" method="get">
+	    <br>
+	    <input type="date" name="date_req" placeholder="введите дату">
+	    <input type="submit" value="Отправить">
+	</form>
+	</center>
+
+	<center>
+
+	<div style="margin: 20px;">
+	<table  border="1" width="600">
+	<tr>
+	      <td>Валюта</td>
+		  <td>Кол-во</td>
+		 <td>Цена</td>
+		  <td>Код</td>
+	   </tr>
+    {% for key in book.keys() %}
+		<tr>
+	      <td>{{key}}</td>
+		 <td>{{book[key][0]}}</td>
+		  <td>{{book[key][1]}}</td>
+		  <td>{{book[key][2]}}</td>
+	   </tr>
+	   
+	
+	{% endfor %}
+	</table>
+    </div>
+{% endblock %}
